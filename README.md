@@ -193,5 +193,4 @@ Tabel:
 ---
 
 # 📸 Dokumentasi (Video)
-<video src="https://raw.githubusercontent.com/imam-aziz/TP9DPBO2425C1/main/dokumentasi/Dokum.mp4" controls="controls" style="max-width: 100%;">
-</video>
+[![Tonton Video Dokumentasi](dokumentasi/thumbnail.png)](dokumentasi/Dokum.mp4)
