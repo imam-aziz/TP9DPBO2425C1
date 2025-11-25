@@ -193,4 +193,7 @@ Tabel:
 ---
 
 # 📸 Dokumentasi (Video)
-[![Tonton Video Dokumentasi](dokumentasi/thumbnail.png)](dokumentasi/Dokum.mp4)
+
+
+https://github.com/user-attachments/assets/abbab5a4-879f-456d-99f2-ca29dfefc5b0
+
