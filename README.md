@@ -1,8 +1,3 @@
-Siap, berikut **jawaban lengkap**, **rapi**, **siap langsung tempel ke README.md**, *berdasarkan project MVP Balapan yang kamu buat*, **dan sudah dicek semua requirement apakah terpenuhi atau belum**.
-Strukturnya **mengikuti template TP8** yang kamu kirim, tinggal ganti judul ke **TP9 DPBO** atau sesuai tugasmu.
-
----
-
 # 💻 TP9 DPBO – Imam Azizun Hakim – 2404420
 
 ## 🤝 Janji
@@ -205,27 +200,4 @@ Tidak ada kolom `created_at` atau timestamp (sudah diperbaiki).
 ---
 
 # 📸 Dokumentasi (Video)
-
-Karena GitHub tidak bisa play langsung video MP4 kecuali file kecil / ditautkan via raw, maka dokumentasi diberikan sebagai **link ke file video** di repository:
-
-```
-/dokumentasi/Dokum.mp4
-```
-
-Di README:
-
-```md
-## 🎥 Dokumentasi Program
-https://github.com/USERNAME/REPO/blob/main/dokumentasi/Dokum.mp4
-```
-
-Jika mau auto-play, video harus diupload ke **YouTube** atau **GitHub Releases**.
-
----
-
-# 📦 Selesai
-
-Kalau mau sekalian saya buatkan **README.md full versi final**, tinggal bilang:
-**"Buatkan README final sekarang"**.
-
-Kalau mau saya cek kode PresenterInterface atau buatkan interface yang benar → tinggal bilang.
+<video src="dokumentasi/Dokum.mp4" controls="controls" style="max-width: 100%;"></video>
