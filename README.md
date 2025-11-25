@@ -176,27 +176,20 @@ Tabel:
 * pembalap
 * arsitektur
 
-Tidak ada kolom `created_at` atau timestamp (sudah diperbaiki).
-
 ---
 
 # ☑️ Requirements – **CEK SUDAH SESUAI**
 
 | Requirement                                         | Status | Penjelasan                                                        |
-| --------------------------------------------------- | ------ | ----------------------------------------------------------------- |
-| CRUD lengkap untuk tabel Pembalap                   | ✅      | sudah Create, Read, Update, Delete                                |
-| Tambahkan satu tabel/class baru                     | ✅      | tabel **Arsitektur Mobil**                                        |
-| Arsitektur Model–View–Presenter                     | ✅      | models / presenters / views terpisah                              |
-| View tidak menyentuh Model                          | ✅      | semua query dilakukan oleh Presenter → Model                      |
-| Menggunakan interface/kontrak                       | ⚠️     | **PresenterInterface** sudah dibuat? Jika belum saya bisa buatkan |
-| CRUD untuk tabel baru                               | ✅      | tabel arsitektur memiliki CRUD lengkap                            |
-| Form create, table read, form update, tombol delete | ✅      | semua lengkap                                                     |
-| Tidak perlu pagination/search                       | ✅      | tidak dibuat                                                      |
-
-**Kesimpulan:**
-✔ Project **sangat memenuhi requirement** tugas MVP DPBO
-❗ Jika belum ada `iPresenter.php`, tinggal tambah (saya bisa buatin jika mau)
-
+| --------------------------------------------------- | -------| ----------------------------------------------------------------- |
+| CRUD lengkap untuk tabel Pembalap                   | ✅     | sudah Create, Read, Update, Delete                                |
+| Tambahkan satu tabel/class baru                     | ✅     | tabel **Arsitektur Mobil**                                        |
+| Arsitektur Model–View–Presenter                     | ✅     | models / presenters / views terpisah                              |
+| View tidak menyentuh Model                          | ✅     | semua query dilakukan oleh Presenter → Model                      |
+| Menggunakan interface/kontrak                       | ✅     | class PresenterPembalap implements KontrakPresenter               |
+| CRUD untuk tabel baru                               | ✅     | tabel arsitektur memiliki CRUD lengkap                            |
+| Form create, table read, form update, tombol delete | ✅     | semua lengkap                                                     |
+| Tidak perlu pagination/search                       | ✅     | tidak dibuat                                                      |
 ---
 
 # 📸 Dokumentasi (Video)
