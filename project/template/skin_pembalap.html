@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Daftar Pembalap</title>
+
+  <style>
+    :root{
+      --bg:#15151E;
+      --card:#1e1e2d;
+      --text:#ffffff;
+      --muted:#a0a0b0;
+      --accent:#FF1E00;
+      --border:#2a2a3c;
+    }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      margin:0;
+      font-family:system-ui;
+    }
+    .container{
+      max-width:980px;
+      margin:36px auto;
+      padding:18px;
+    }
+    .nav a{
+      color:var(--muted);
+      padding:10px 15px;
+      background:var(--card);
+      text-decoration:none;
+      border-radius:6px;
+      border:1px solid var(--border);
+      font-weight:bold;
+      margin-right:8px;
+    }
+    .nav a.active{
+      background:var(--accent);
+      color:white;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      padding:20px;
+      border-radius:10px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    th,td{
+      border-bottom:1px solid var(--border);
+      padding:10px;
+    }
+    th{color:var(--muted);}
+    .btn{
+      padding:8px 12px;
+      border-radius:5px;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:bold;
+      cursor:pointer;
+      border:none;
+    }
+    .btn-add{
+      background:var(--accent);
+      color:white;
+      float:right;
+    }
+    .btn-edit{
+      background:#333;
+      color:white;
+    }
+    .btn-delete{
+      background:transparent;
+      color:red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+
+      <div class="nav">
+        <a href="index.php?entity=pembalap" class="active">Pembalap</a>
+        <a href="index.php?entity=arsitektur">Arsitektur Mobil</a>
+      </div>
+
+      <h1>Daftar Pembalap</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Tim</th>
+            <th>Negara</th>
+            <th>Poin Musim</th>
+            <th>Jumlah Menang</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- PHP will inject rows here -->
+        </tbody>
+      </table>
+
+      <a href="index.php?entity=pembalap&screen=add" class="btn-add">+ Tambah Pembalap</a>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('click', e=>{
+      var d = e.target.closest('.btn-delete');
+      if(!d) return;
+      if(!confirm("Yakin menghapus data?")) return;
+      var f=document.createElement("form");
+      f.method="POST"; f.action="index.php";
+      f.innerHTML=`<input type="hidden" name="action" value="delete">
+                   <input type="hidden" name="entity" value="pembalap">
+                   <input type="hidden" name="id" value="${d.dataset.id}">`;
+      document.body.appendChild(f);
+      f.submit();
+    })
+  </script>
+
+</body>
+</html>

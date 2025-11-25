@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pembalap — Daftar</title>
+  <style>
+    :root{
+      --bg: #15151E;
+      --card: #1e1e2d;
+      --text: #ffffff;
+      --muted: #a0a0b0;
+      --accent: #FF1E00;
+      --border: #2a2a3c;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:system-ui;
+    }
+    .container{
+      max-width:980px;
+      margin:36px auto;
+      padding:18px;
+    }
+
+    .nav{
+      display:flex;
+      gap:15px;
+      margin-bottom:20px;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:10px 15px;
+      font-weight:bold;
+      background:var(--card);
+      border-radius:6px;
+      border:1px solid var(--border);
+    }
+    .nav a.active{
+      background:var(--accent);
+      color:white;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:20px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    th{
+      text-align:left;
+      color:var(--muted);
+      border-bottom:1px solid var(--border);
+      padding:10px;
+    }
+    td{
+      padding:10px;
+      border-bottom:1px solid var(--border);
+    }
+
+    .btn{
+      padding:8px 12px;
+      border-radius:5px;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:bold;
+      cursor:pointer;
+      border:none;
+    }
+    .btn-add{
+      background:var(--accent);
+      color:white;
+      float:right;
+    }
+    .btn-edit{
+      background:#333;
+      color:white;
+    }
+    .btn-delete{
+      background:transparent;
+      color:red;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="nav">
+        <a href="index.php?entity=pembalap" class="active">Pembalap</a>
+        <a href="index.php?entity=arsitektur">Arsitektur Mobil</a>
+      </div>
+
+      <h1>Daftar Pembalap</h1>
+
+      <div style="overflow:auto;">
+        <table role="table" aria-label="Daftar Pembalap">
+          <thead>
+              <tr>
+                  <php?= $tableHeader ?>
+              </tr>
+          </thead>
+          <tbody>
+          <!-- PHP will inject rows here -->
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center">
+        <div style="color:var(--muted);font-size:13px">
+          Total: <php?= $total ?>
+        </div>
+          <a href="index.php?entity=<?= $entity ?>&screen=add" class="btn btn-add"> + Tambah <php?= $label ?></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('click', function(e){
+      var d = e.target.closest && e.target.closest('.btn-delete');
+      if(!d) return;
+      var id = d.getAttribute('data-id');
+      var entity = d.getAttribute('data-entity') || 'pembalap';
+      if(!id) return;
+      var ok = confirm('Yakin ingin menghapus entri #' + id + '?');
+      if(!ok) return;
+      
+      // Create a hidden form and submit it
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'index.php';
+      
+      var actionInput = document.createElement('input');
+      actionInput.type = 'hidden';
+      actionInput.name = 'action';
+      actionInput.value = 'delete';
+      form.appendChild(actionInput);
+
+      var entityInput = document.createElement('input');
+      entityInput.type = 'hidden';
+      entityInput.name = 'entity';
+      entityInput.value = entity;
+      form.appendChild(entityInput);
+      
+      var idInput = document.createElement('input');
+      idInput.type = 'hidden';
+      idInput.name = 'id';
+      idInput.value = id;
+      form.appendChild(idInput);
+      
+      document.body.appendChild(form);
+      form.submit();
+    });
+  </script>
+</body>
+</html>

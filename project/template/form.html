@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Form Pembalap</title>
+  <style>
+    :root{
+      --bg:#15151E;
+      --card:#1e1e2d;
+      --text:#ffffff;
+      --muted:#a0a0b0;
+      --accent:#FF1E00;
+      --border:#2a2a3c;
+    }
+    body{
+      background:var(--bg);
+      color:var(--text);
+      margin:0;
+      font-family:system-ui;
+    }
+    .container{
+      max-width:980px;
+      margin:36px auto;
+      padding:18px;
+    }
+    .nav a{
+      color:var(--muted);
+      padding:10px 15px;
+      background:var(--card);
+      text-decoration:none;
+      border-radius:6px;
+      border:1px solid var(--border);
+      font-weight:bold;
+      margin-right:8px;
+    }
+    .nav a.active{
+      background:var(--accent);
+      color:white;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      padding:20px;
+      border-radius:10px;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+    th,td{
+      border-bottom:1px solid var(--border);
+      padding:10px;
+    }
+    th{color:var(--muted);}
+    .btn{
+      padding:8px 12px;
+      border-radius:5px;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:bold;
+      cursor:pointer;
+      border:none;
+    }
+    .btn-add{
+      background:var(--accent);
+      color:white;
+      float:right;
+    }
+    .btn-edit{
+      background:#333;
+      color:white;
+    }
+    .btn-delete{
+      background:transparent;
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Form Pembalap</h1>
+
+      <form method="post" action="index.php" novalidate data-form="pembalap">
+        <!-- hidden fields for action and id -->
+        <input type="hidden" name="action" value="add" id="pembalap-action" data-field>
+        <input type="hidden" name="id" value="" id="pembalap-id" data-field>
+        <input type="hidden" name="entity" value="pembalap" id="pembalap-entity" data-field>
+
+        <div>
+          <label for="nama">Nama</label>
+          <input id="nama" name="nama" type="text" placeholder="Nama pembalap" required data-field>
+        </div>
+
+        <div>
+          <label for="tim">Tim</label>
+          <input id="tim" name="tim" type="text" placeholder="Nama tim" required data-field>
+        </div>
+
+        <div>
+          <label for="negara">Negara</label>
+          <input id="negara" name="negara" type="text" placeholder="Negara (mis. Indonesia)" data-field>
+        </div>
+
+        <div>
+          <label for="poinMusim">Poin Musim</label>
+          <input id="poinMusim" name="poinMusim" type="number" min="0" step="1" placeholder="0" data-field>
+        </div>
+
+        <div class="full">
+          <label for="jumlahMenang">Jumlah Menang</label>
+          <input id="jumlahMenang" name="jumlahMenang" type="number" min="0" step="1" placeholder="0" data-field>
+        </div>
+
+        <div class="full actions">
+          <a href="index.php?entity=pembalap" class="btn btn-muted">Batal</a>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var form = document.querySelector('form');
+      if(!form) return;
+      form.addEventListener('submit', function(e){
+        var nama = document.getElementById('nama');
+        if(!nama.value.trim()){
+          alert('Nama harus diisi');
+          nama.focus();
+          e.preventDefault();
+          return false;
+        }
+        // If action is edit, ensure id exists
+        var action = document.getElementById('pembalap-action').value;
+        if(action === 'edit'){
+          var id = document.getElementById('pembalap-id').value;
+          if(!id){
+            alert('ID pembalap tidak ditemukan untuk edit');
+            e.preventDefault();
+            return false;
+          }
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
